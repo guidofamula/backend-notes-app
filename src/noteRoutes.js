@@ -17,14 +17,14 @@ const routes = [
 // Todo 21 = menambahkan konfigurasi route untuk R.R GET agar data yang di isi client dapat tampil di web
 {
 	method: 'GET',
-	path: './notes',
+	path: '/notes',
 	// Todo 24 = masukkan fungsi dari handler untuk menampilkan data client ke dalam website tampilan
 	handler: getAllNotesHandler,
 },
 // Todo 25 = menambahkan method dan path agar menampilkan catatan/data client lebih spesifik kedalam web.
 {
 	method: 'GET',
-	path: 'notes/{id}',
+	path: '/notes/{id}',
 	handler: () => {},
 },
 
