@@ -4,7 +4,12 @@
 
 // Todo 17 = Import fungsi addNoteHandler
 // Todo 23 = melakukan import getAllNotesHandler
-const { addNoteHandler, getAllNotesHandler, getNoteByIdHandler } = require('./noteHandler');
+const { 
+	addNoteHandler,
+	getAllNotesHandler,
+	getNoteByIdHandler,
+	editNoteByIdHanlder,
+} = require('./noteHandler');
 
 const routes = [
 {
@@ -27,6 +32,13 @@ const routes = [
 	path: '/notes/{id}',
 	// Todo 31 = masukkan fungsi dari handler getNoteByIdHandler agar update id dan objek bersamaan bisa tertangkap
 	handler: getNoteByIdHandler,
+},
+// Todo 32 = Menambahkan konfigurasi PUT untuk client gunakan sebagai edit title, tags atau isi pada body.
+{
+	method: 'PUT',
+	path: '/notes/{id}',
+	// Todo 40 = masukkan fungsi dari handler editNoteByIdHandler, untuk proses edit catatan menjadi update catatan baru.
+	handler: editNoteByIdHanlder,
 },
 
 ];

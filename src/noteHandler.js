@@ -81,4 +81,50 @@ const getNoteByIdHandler = (request, h) => {
 	return response;
 };
 
-module.exports = { addNoteHandler, getAllNotesHandler, getNoteByIdHandler };
+// Todo 33 = Menambahkan fungsi editNoteByIdHandler sebagai handler untuk konfigurasi PUT pada noteServer.js
+const editNoteByIdHanlder = (request, h) => {
+	// Todo 34 = Fungsi yang diterapkan harus sesuai dengan id yang digunakan pada client/route parameter, oleh sebab itu harus menangkap nilai" id tersebut.
+	const { id } = request.params;
+
+	// Todo 35 = Perintah menangkap data notes terbaru setelah user client menyelesaikan edit.
+	const { title, tags, body } = request.payload;
+
+	// Todo 36 = Perintah untuk menangkap nilai dari properti terbaru updateAt.
+	const updateAt = new Date().toISOString();
+
+	// Todo 37 = Perintah untuk mendapatkan index array pada objek catatan sesuai id yang ditentukan user
+	const index = notes.findIndex((note) => note.id === id);
+
+	// Todo 38 = Semua data object, id serta index array sudah ditangkap, terus dilakukan perkondisian if/else
+	if (index !== -1) {
+		notes[index] = {
+			// Todo 39 = Melakukan spread array untuk mencocokkan index array dan mempertahankan nilai notes[index], jika ditemukan/sesuai maka index sesuai untuk dilakukan edit/ditambahkan menjadi catatan baru
+			...notes[index],
+			title,
+			tags,
+			body,
+			updateAt,
+		};
+
+		const response = h.response({
+			status: 'success',
+			message: 'catatan berhasil diperbarui'
+		});
+		response.code(200);
+		return response;
+	}
+
+	const response = h.response({
+		status: 'fail',
+		message: 'gagal memperbarui catatan, id tidak ditemukan',
+	});
+	response.code(404);
+	return response;
+};
+
+module.exports = { 
+	addNoteHandler,
+	getAllNotesHandler,
+	getNoteByIdHandler,
+	editNoteByIdHanlder
+};
