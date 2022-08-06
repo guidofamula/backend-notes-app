@@ -8,7 +8,7 @@ const {
 	addNoteHandler,
 	getAllNotesHandler,
 	getNoteByIdHandler,
-	editNoteByIdHanlder,
+	editNoteByIdHandler,
 	deleteNoteByIdHandler,
 } = require('./noteHandler');
 
@@ -39,7 +39,7 @@ const routes = [
 	method: 'PUT',
 	path: '/notes/{id}',
 	// Todo 40 = masukkan fungsi dari handler editNoteByIdHandler, untuk proses edit catatan menjadi update catatan baru.
-	handler: editNoteByIdHanlder,
+	handler: editNoteByIdHandler,
 },
 // Todo 41 = Menambahkan konfigurasi DELETE untuk digunakan sebagai menghapus catatan.
 {

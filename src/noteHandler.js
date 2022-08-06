@@ -82,7 +82,7 @@ const getNoteByIdHandler = (request, h) => {
 };
 
 // Todo 33 = Menambahkan fungsi editNoteByIdHandler sebagai handler untuk konfigurasi PUT pada noteServer.js
-const editNoteByIdHanlder = (request, h) => {
+const editNoteByIdHandler = (request, h) => {
 	// Todo 34 = Fungsi yang diterapkan harus sesuai dengan id yang digunakan pada client/route parameter, oleh sebab itu harus menangkap nilai" id tersebut.
 	const { id } = request.params;
 
@@ -151,6 +151,6 @@ module.exports = {
 	addNoteHandler,
 	getAllNotesHandler,
 	getNoteByIdHandler,
-	editNoteByIdHanlder,
+	editNoteByIdHandler,
 	deleteNoteByIdHandler,
 };
