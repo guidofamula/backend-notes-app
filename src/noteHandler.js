@@ -122,9 +122,35 @@ const editNoteByIdHanlder = (request, h) => {
 	return response;
 };
 
+// Todo 42 = Membuat fungsi untuk fitur delete yang akan di hubungkan pada konfigurasi route DELETE
+const deleteNoteByIdHandler = (request, h) => {
+	// Todo 43 = Mendapatkan nilai id yang dikirim melalui parameter request
+	const { id } = request.params;
+	// Todo 44 = menyesuaikan id dengan objek catatan terupdate
+	const index = notes.findIndex((note) => note.id === id);
+	// Todo 45 = membuat perintah untuk memastikan nilai index tidak -1, lalu gunakan method array splice() untuk menghapus data.
+	if (index !== -1) {
+		notes.splice(index, 1);
+		const response = h.response({
+			status: 'success',
+			message: 'catatan berhasil dihapus',
+		});
+		response.code(200);
+		return response;
+	}
+
+	const response = h.response({
+		status: 'fail',
+		message: 'catatan gagal dihapus, Id tidak ditemukan',
+	});
+	response.code(404);
+	return response;
+};
+
 module.exports = { 
 	addNoteHandler,
 	getAllNotesHandler,
 	getNoteByIdHandler,
-	editNoteByIdHanlder
+	editNoteByIdHanlder,
+	deleteNoteByIdHandler,
 };
