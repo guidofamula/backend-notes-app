@@ -66,7 +66,7 @@ const getNoteByIdHandler = (request, h) => {
 	// Todo 29 = Memastikan objek tidak bernilai undefined, bila undefined kembalikan dengan response gagal
 	if (note !== undefined) {
 		return {
-			status: 'succes',
+			status: 'success',
 			data: {
 				note,
 			},
